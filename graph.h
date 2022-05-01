@@ -28,30 +28,30 @@ private:
 
         }
     };
-    size_t edge_count;
+    size_t edgeCount;
     std::vector<vertex*> vertex_list;
 
 public:
     // Task 1
-    Graph(): edge_count(0), vertex_list(0){
+    Graph(): edgeCount(0), vertex_list(0){
 
     };
 
     Graph(const Graph& other){
-        edge_count=other.edge_count;
+        edgeCount=other.edgeCount;
         vertex_list=other.vertex_list;
     };
 
     Graph& operator=(const Graph& other){
         if(this!=&other){
-            edge_count=other.edge_count;
+            edgeCount=other.edgeCount;
             vertex_list=other.vertex_list;
         }
         return *this;
     };
 
     ~Graph(){
-        edge_count=0;
+        edgeCount=0;
     };
 
     size_t vertex_count() const{
@@ -59,7 +59,7 @@ public:
     };
 
     size_t edge_count() const{
-        return edge_count;
+        return edgeCount;
     };
 
     bool contains_vertex(size_t id) const{
@@ -111,7 +111,6 @@ public:
 
         std::list<edge> newedge;
         vertex* newVertex = new vertex(newedge, id);
-        vertex* newVertex;
         vertex_list.push_back(newVertex);
         return true;
 
@@ -131,7 +130,7 @@ public:
 
         edge newEdge = edge(src, dest, weight);
         source->connectedEdges.push_back(newEdge);
-        ++edge_count;
+        ++edgeCount;
         return true;
     };
 
